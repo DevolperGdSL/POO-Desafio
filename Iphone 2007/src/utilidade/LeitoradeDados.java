@@ -2,6 +2,8 @@ package utilidade;
 
 import java.util.Scanner;
 
+import Elementos.Aba;
+import Elementos.Contato;
 import Elementos.Musica;
 
 import BasedeDados.Banco;
@@ -30,6 +32,24 @@ public class LeitoradeDados {
 		musica.setNome(nome);
 		return musica;
 	}
-    
-    
+    public static Contato lerContato(){
+        System.out.println("Cadastrando Contato...");
+        Contato contato = new Contato();
+
+        System.out.println("Digite o Nome do Contato:");
+        String nome = lerDado();
+        contato.setNome(nome);
+
+        System.out.println("Digite o Numero do Contato:");
+        int numero = Lernum.lerNum();
+        contato.setNumero(numero);
+        return contato;
+    }
+    public static Aba lerAba(){
+        Aba contato = new Aba();
+        System.out.println("Digite o endereço do site:");
+        String nome = lerDado();
+        contato.setEndereçodoSite(nome);
+        return contato;
+    }
 }

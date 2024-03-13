@@ -3,7 +3,7 @@ package App;
 import Elementos.Musica;
 import Negocio.MusicaNegocio;
 import utilidade.LeitoradeDados;
-import Aparelho.Iphone;
+import utilidade.Lernum;
 import BasedeDados.Banco;
 
 
@@ -11,7 +11,8 @@ public class ReprodutordeMusica {
     private static Banco banco = new Banco();
 
     private static MusicaNegocio musicaNegocio = new MusicaNegocio(banco);
-    static String escolha;
+    static int escolha;
+    static boolean status = false;
     public static void menu(){
         do{
             System.out.println("Selecione uma opção: ");
@@ -22,36 +23,43 @@ public class ReprodutordeMusica {
             System.out.println("5- Posterior");
             System.out.println("6- Anterior");
             System.out.println("7- Sair");
-            escolha = LeitoradeDados.lerDado();
+            escolha = Lernum.lerNum();
             switch (escolha) {
-                case "1":
+                case 1:
                     Musica musica = LeitoradeDados.lerMusica();
                     musicaNegocio.salvar(musica);
                     break;
-                case "2":
-                    System.out.println("Digite o nome da Musica");
-                    String nomeMusica = LeitoradeDados.lerDado();
+                case 2:
+                System.out.println("Musicas cadastradas:");
+                    musicaNegocio.Listar();
+                    System.out.println("Digite o numero da Musica");
+                    int nomeMusica = Lernum.lerNum();
                     musicaNegocio.excluir(nomeMusica);
                     break;
-                case "3":
-                    
+                case 3:
+                    status = true;
+                    System.out.println("Musicas cadastradas:");
+                    musicaNegocio.Listar();
+                    System.out.println("Digite o numero da musica:");
+                    int numeroMusica = Lernum.lerNum();
+                    musicaNegocio.Selecionar(numeroMusica);
                     break;
-                case "4":
-                
+                case 4:
+                    musicaNegocio.pause(status);
                     break;
-                case "5":
-                
+                case 5:
+                    musicaNegocio.posterior();
                     break;
-                case "6":
-                
+                case 6:
+                    musicaNegocio.anterior();
                     break;
-                case "7":
+                case 7:
                     System.out.println("Saindo");
                     break;
                 default:
                     break;
             }
-        }while(escolha != "7");
+        }while(escolha != 7);
     }
 }
 
