@@ -2,9 +2,11 @@ package utilidade;
 
 import java.util.Scanner;
 
+
 import Elementos.Aba;
 import Elementos.Contato;
 import Elementos.Musica;
+
 
 import BasedeDados.Banco;
 
@@ -16,12 +18,21 @@ public class LeitoradeDados {
     static {
         scanner = new Scanner(System.in); 
     } 
-
+    /**
+     * Faz a leitura de um tipo texto
+     * @return
+     * Um tipo texto
+     */
     public static String lerDado(){
         String texto = scanner.nextLine();
         return texto;
     }
     Banco bancodeDados = new Banco();
+    /**
+     * Faz a leitura de um tipo Musica
+     * @return
+     * Um tipo Musica
+     */
     public static Musica lerMusica() {
 
 		System.out.println("Cadastrando Musica...");
@@ -32,6 +43,11 @@ public class LeitoradeDados {
 		musica.setNome(nome);
 		return musica;
 	}
+    /**
+     * Faz a leitura de um tipo Contato
+     * @return
+     * Um tipo Contato
+     */
     public static Contato lerContato(){
         System.out.println("Cadastrando Contato...");
         Contato contato = new Contato();
@@ -45,6 +61,11 @@ public class LeitoradeDados {
         contato.setNumero(numero);
         return contato;
     }
+    /**
+     * Faz a leitura de um tipo Aba
+     * @return
+     * Um tipo Aba
+     */
     public static Aba lerAba(){
         Aba contato = new Aba();
         System.out.println("Digite o endereço do site:");
@@ -52,4 +73,5 @@ public class LeitoradeDados {
         contato.setEndereçodoSite(nome);
         return contato;
     }
+    
 }

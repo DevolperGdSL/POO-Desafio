@@ -8,7 +8,11 @@ public class Lernum {
     static {
         scanner = new Scanner(System.in); 
     } 
-
+    /**
+     * Faz a leitura de um inteiro
+     * @return
+     * Um numero do tipo inteiro
+     */
     public static int lerNum(){
         int numero = scanner.nextInt();
         return numero;

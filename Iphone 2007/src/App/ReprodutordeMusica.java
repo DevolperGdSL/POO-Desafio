@@ -12,7 +12,10 @@ public class ReprodutordeMusica {
 
     private static MusicaNegocio musicaNegocio = new MusicaNegocio(banco);
     static int escolha;
-    static boolean status = false;
+    static boolean engraçadinho;
+    /**
+     * Menu do reprodutor de musica
+     */
     public static void menu(){
         do{
             System.out.println("Selecione uma opção: ");
@@ -30,22 +33,31 @@ public class ReprodutordeMusica {
                     musicaNegocio.salvar(musica);
                     break;
                 case 2:
-                System.out.println("Musicas cadastradas:");
-                    musicaNegocio.Listar();
-                    System.out.println("Digite o numero da Musica");
-                    int nomeMusica = Lernum.lerNum();
-                    musicaNegocio.excluir(nomeMusica);
+                    System.out.println("Musicas cadastradas:");
+                    engraçadinho = musicaNegocio.Listar();
+                    if (engraçadinho) {
+                        System.out.println("Digite o numero da Musica:");
+                        int nomeMusica = Lernum.lerNum();
+                        musicaNegocio.excluir(nomeMusica);
+                    }else{
+                        System.out.println("Nenhuma");
+                    }
+                    
                     break;
                 case 3:
-                    status = true;
                     System.out.println("Musicas cadastradas:");
-                    musicaNegocio.Listar();
-                    System.out.println("Digite o numero da musica:");
-                    int numeroMusica = Lernum.lerNum();
-                    musicaNegocio.Selecionar(numeroMusica);
+                    engraçadinho = musicaNegocio.Listar();
+                    if (engraçadinho) {
+                        System.out.println("Digite o numero da musica:");
+                        int numeroMusica = Lernum.lerNum();
+                        musicaNegocio.Selecionar(numeroMusica); 
+                    }else{
+                        System.out.println("Nenhuma");
+                    }
+                    
                     break;
                 case 4:
-                    musicaNegocio.pause(status);
+                    musicaNegocio.pause();
                     break;
                 case 5:
                     musicaNegocio.posterior();
@@ -57,6 +69,7 @@ public class ReprodutordeMusica {
                     System.out.println("Saindo");
                     break;
                 default:
+                    System.out.println("Entrada inválida tente novamente");
                     break;
             }
         }while(escolha != 7);

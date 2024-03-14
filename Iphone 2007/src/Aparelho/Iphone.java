@@ -7,6 +7,7 @@ import utilidade.Lernum;
 public class Iphone {
     public static void main(String[] args) {
         int escolha = 0;
+        //Menu básico
         do {
             System.out.println("Selecione uma opção: ");
             System.out.println("1-Reprodutor de musica");
@@ -31,6 +32,7 @@ public class Iphone {
                     System.out.println("Desligando...");
                     break;
                 default:
+                    System.out.println("Entrada inválida tente novamente");
                     break;
             }
 

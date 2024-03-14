@@ -28,9 +28,13 @@ public class Telefone {
                     break;
                 case 2:
                     System.out.println("Lista de contatos:");
-                    telefoneNegocio.Listar();
-                    int contatoSelecionado = Lernum.lerNum();
-                    telefoneNegocio.Selecionar(contatoSelecionado);
+                    boolean engraçadinho =telefoneNegocio.Listar();
+                    if (engraçadinho) {
+                        int contatoSelecionado = Lernum.lerNum();
+                        telefoneNegocio.Selecionar(contatoSelecionado);  
+                    }else{
+                        System.out.println("Nenhum");
+                    }
                     break;
                 case 3:
                     telefoneNegocio.CorreiodeVoz();
